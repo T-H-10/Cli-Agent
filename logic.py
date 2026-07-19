@@ -10,7 +10,7 @@ client = OpenAI(
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 
-MODELS = ["gemini-2.5-flash-lite", "gemini-2.0-flash", "gemini-1.5-flash", "gemini-1.5-flash-8b"]
+MODELS = ["gemini-2.5-flash-lite", "gemini-2.0-flash"]
 
 def get_cli_command(user_text, prompt_version, history):
     """
@@ -37,6 +37,9 @@ def get_cli_command(user_text, prompt_version, history):
             last_error = str(e)
             if "404" in last_error:
                 print(f"Model {model_name} not found, trying next...")
+                continue
+            if "429" in last_error:
+                print(f"Model {model_name} rate-limited (429), trying next...")
                 continue
             break 
             

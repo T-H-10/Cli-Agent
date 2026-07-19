@@ -25,7 +25,7 @@ Read [PROJECT_PLAN.md](../PROJECT_PLAN.md) for the full roadmap before making st
   ```
 - Add dependencies with `uv add <pkg>` so `pyproject.toml`/lock stay in sync.
 - Requires a local `.env` with `GEMINI_API_KEY=...` (loaded via `python-dotenv`). Do **not** commit `.env`.
-- **API key / rate-limit handling:** if a run returns HTTP **429** (rate limit / quota exceeded) or **419** (auth/session expired), do **not** silently retry or fabricate output. **Stop and tell the user explicitly** that a new/refreshed `GEMINI_API_KEY` is needed, and wait for them to update `.env` before continuing.
+- **API key / rate-limit handling:** if a run returns HTTP **429** (rate limit / quota exceeded), do **not** silently retry or fabricate output. **Stop and tell the user explicitly** that a new/refreshed `GEMINI_API_KEY` is needed, and wait for them to update `.env` before continuing.
 
 ## When asked to "improve the prompt"
 1. Look at the failing scenarios (Google Sheet / `FAILURES.md`) to identify the single problem.
