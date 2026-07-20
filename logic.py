@@ -68,4 +68,4 @@ def get_cli_command(user_text, prompt_version, history):
     return f"Error: All models failed. Last error: {last_error}", history
 
 def validate_command_wrapper(command):
-    return validate_command(command, client)
+    return validate_command(command, client, MODELS[0])

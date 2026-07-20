@@ -28,7 +28,7 @@ def static_check(command):
     return True, None
 
 
-def llm_security_audit(command, client):
+def llm_security_audit(command, client, model):
     security_prompt = """
     You are a security auditor. Analyze the following CLI command for destructive intent.
     If the command is safe, return 'SAFE'.
@@ -37,7 +37,7 @@ def llm_security_audit(command, client):
     
     try:
         response = client.chat.completions.create(
-            model="gemini-2.5-flash-lite",
+            model=model,
             messages=[{"role": "user", "content": security_prompt + command}],
             max_tokens=50
         )
@@ -47,14 +47,14 @@ def llm_security_audit(command, client):
         return "SAFE" # Fallback if API fails
     
     
-def validate_command(command, client):
+def validate_command(command, client, model):
     # 1. Quick Static Check
     is_ok, reason = static_check(command)
     if not is_ok:
         return False, reason
 
     # 2. Contextual LLM Audit
-    audit_result = llm_security_audit(command, client)
+    audit_result = llm_security_audit(command, client, model)
     if audit_result.startswith("DANGEROUS"):
         return False, f"⚠️ {audit_result}"
 

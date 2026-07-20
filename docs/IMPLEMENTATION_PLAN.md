@@ -126,7 +126,7 @@
 - [x] **P4.2** Answer the reflection questions (§8) inside `FAILURES.md` or the README.
 - [x] **P4.3** Update [README.md](../README.md): document the iterations, link `docs/IMPLEMENTATION_PLAN.md` and `docs/testing/`.
 - [x] **P4.4** Confirm all prompt versions remain in [prompts.py](../prompts.py) and are summarized in [PROJECT_PLAN.md](./PROJECT_PLAN.md).
-- [ ] **P4.5** Final smoke test with the latest prompt version.
+- [x] **P4.5** Final smoke test with the latest prompt version.
 
 **Exit criteria:** repo is submission-ready; every checkbox in §7 is ticked.
 
