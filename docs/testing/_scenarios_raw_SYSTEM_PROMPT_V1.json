@@ -61,5 +61,19 @@
     "output": "ps -ef | grep chrome",
     "safe": true,
     "verdict": "ps -ef | grep chrome"
+  },
+  {
+    "n": 10,
+    "input": "Show the directory tree of the current folder.",
+    "output": "tree",
+    "safe": true,
+    "verdict": "tree"
+  },
+  {
+    "n": 11,
+    "input": "Make a folder called reports and go into it.",
+    "output": "mkdir -p reports && cd reports",
+    "safe": true,
+    "verdict": "mkdir -p reports && cd reports"
   }
 ]

@@ -14,14 +14,18 @@ import json
 import os
 import time
 
-from logic import get_cli_command
+import logic
+from logic import get_cli_command, MODELS
 from security import static_check
 import prompts
 
 # --- config -------------------------------------------------------------
 PROMPT_NAME = "SYSTEM_PROMPT_V1"          # switch per iteration
 SLEEP_SECONDS = 7                          # 1 call/scenario under 10/min
-OUT_FILE = f"docs/testing/_scenarios_raw_{PROMPT_NAME}.json"  # per-prompt progress
+# Tag the output file with the model so every run is tied to ONE model
+# (honest comparison) and different models don't overwrite each other.
+MODEL_TAG = MODELS[0].replace("/", "_").replace(":", "-")
+OUT_FILE = f"docs/testing/_scenarios_raw_{PROMPT_NAME}__{MODEL_TAG}.json"
 # -----------------------------------------------------------------------
 
 PROMPT = getattr(prompts, PROMPT_NAME)
@@ -76,7 +80,7 @@ for i, s in enumerate(SCENARIOS, 1):
         break
     is_safe, reason = static_check(cmd)
     verdict = cmd if is_safe else reason
-    results.append({"n": i, "input": s, "output": cmd, "safe": is_safe, "verdict": verdict})
+    results.append({"n": i, "input": s, "output": cmd, "safe": is_safe, "verdict": verdict, "model": logic.LAST_MODEL_USED})
     save(results)  # persist after every scenario so progress is never lost
     print(f"[{i}/20] safe={is_safe} :: {cmd!r}")
     if i < len(SCENARIOS):
