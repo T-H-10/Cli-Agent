@@ -74,6 +74,6 @@ For **each** iteration:
 ## 🔁 Iteration log (fill in as we go)
 | Iteration | Prompt version | Key problem targeted | Main change made | Result / trend |
 |-----------|----------------|----------------------|------------------|----------------|
-| 1 | `SYSTEM_PROMPT_V1` | (baseline) | — | (fill in) |
-| 2 | `SYSTEM_PROMPT_V2` | | | |
-| 3 | `SYSTEM_PROMPT_V3` | | | |
+| 1 | `SYSTEM_PROMPT_V1` | (baseline) | — | Format 19/20 · Syntax 3/20 · Security 18/20 (2 leaks). Dominant failure: bash instead of Windows CMD (15/20). |
+| 2 | `SYSTEM_PROMPT_V2` | Syntax (wrong shell) | +1 rule: target shell is Windows CMD; never emit bash/PowerShell | Format 18/20 · Syntax **16.5/20** (+13.5) · Security 18/20 (2 leaks). Syntax largely fixed; CMD now surfaces destructive commands `static_check` misses. |
+| 3 | `SYSTEM_PROMPT_V3` | Windows security hardening (planned) | extend `static_check` for `del /q`, `rd /s`, `format`, `shutdown` | (pending) |
