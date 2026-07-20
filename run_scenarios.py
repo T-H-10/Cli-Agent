@@ -20,8 +20,8 @@ from security import static_check
 import prompts
 
 # --- config -------------------------------------------------------------
-PROMPT_NAME = "SYSTEM_PROMPT_V1"          # switch per iteration
-SLEEP_SECONDS = 7                          # 1 call/scenario under 10/min
+PROMPT_NAME = "SYSTEM_PROMPT_V2"          # switch per iteration
+SLEEP_SECONDS = 0.1                          # 1 call/scenario under 10/min
 # Tag the output file with the model so every run is tied to ONE model
 # (honest comparison) and different models don't overwrite each other.
 MODEL_TAG = MODELS[0].replace("/", "_").replace(":", "-")

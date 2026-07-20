@@ -1,9 +1,9 @@
 import gradio as gr
 from logic import get_cli_command, validate_command_wrapper
-from prompts import SYSTEM_PROMPT_V1
+from prompts import SYSTEM_PROMPT_V2
 
 def process_request(user_input, history):
-    raw_command, updated_history = get_cli_command(user_input, SYSTEM_PROMPT_V1, history)
+    raw_command, updated_history = get_cli_command(user_input, SYSTEM_PROMPT_V2, history)
     is_safe, result = validate_command_wrapper(raw_command)
     
     if not is_safe:

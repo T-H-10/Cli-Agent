@@ -71,7 +71,7 @@
 - [ ] **P1.3** Run all scenarios through the app (V1). Paste raw outputs verbatim.
 - [ ] **P1.4** Score each scenario on the rubric (§4): Format / Syntax / Security / Overall.
 - [ ] **P1.5** Compute totals and write a 3–5 sentence "what broke" summary at the bottom of `iteration_1.md`.
-- [ ] **P1.6** Fill the Iteration-1 row of the log table in [PROJECT_PLAN.md](../PROJECT_PLAN.md).
+- [ ] **P1.6** Fill the Iteration-1 row of the log table in [PROJECT_PLAN.md](./PROJECT_PLAN.md).
 
 **Exit criteria:** `scenarios.md` + `iteration_1.md` committed with real outputs and scores.
 
@@ -85,7 +85,7 @@
 2. **Author** — add `SYSTEM_PROMPT_V{N}` in [prompts.py](../prompts.py) as a *new constant* (append-only) that adds **one** targeted rule versus `V{N-1}`.
 3. **Switch** — update the import in [main.py](../main.py) to `SYSTEM_PROMPT_V{N}`.
 4. **Re-test** — run the *same* `scenarios.md` set; create `docs/testing/iteration_{N}.md`.
-5. **Compare** — record deltas vs. previous iteration; update the log in [PROJECT_PLAN.md](../PROJECT_PLAN.md).
+5. **Compare** — record deltas vs. previous iteration; update the log in [PROJECT_PLAN.md](./PROJECT_PLAN.md).
 
 **Planned iteration targets (adjust to whatever V1 actually fails):**
 
@@ -125,7 +125,7 @@
 - [ ] **P4.1** Create [FAILURES.md](../FAILURES.md): the 3–5 most interesting failures (input, wrong output, why it failed, which prompt version fixed it).
 - [ ] **P4.2** Answer the reflection questions (§8) inside `FAILURES.md` or the README.
 - [ ] **P4.3** Update [README.md](../README.md): document the iterations, link `docs/IMPLEMENTATION_PLAN.md` and `docs/testing/`.
-- [ ] **P4.4** Confirm all prompt versions remain in [prompts.py](../prompts.py) and are summarized in [PROJECT_PLAN.md](../PROJECT_PLAN.md).
+- [ ] **P4.4** Confirm all prompt versions remain in [prompts.py](../prompts.py) and are summarized in [PROJECT_PLAN.md](./PROJECT_PLAN.md).
 - [ ] **P4.5** Final smoke test with the latest prompt version.
 
 **Exit criteria:** repo is submission-ready; every checkbox in §7 is ticked.
@@ -219,10 +219,10 @@ Written once into `docs/testing/scenarios.md`. Grouped so each group stresses a 
 ## 7. Deliverables Checklist (submission gate)
 
 - [ ] Public GitHub repo link.
-- [ ] All prompt versions present in [prompts.py](../prompts.py) + summarized in [PROJECT_PLAN.md](../PROJECT_PLAN.md).
+- [ ] All prompt versions present in [prompts.py](../prompts.py) + summarized in [PROJECT_PLAN.md](./PROJECT_PLAN.md).
 - [ ] `docs/testing/scenarios.md` (≥15 scenarios).
 - [ ] `docs/testing/iteration_1.md`, `iteration_2.md`, `iteration_3.md` (+ optional 4).
-- [ ] Iteration log table filled in [PROJECT_PLAN.md](../PROJECT_PLAN.md).
+- [ ] Iteration log table filled in [PROJECT_PLAN.md](./PROJECT_PLAN.md).
 - [ ] [FAILURES.md](../FAILURES.md) with interesting failures + reflection answers.
 - [ ] Windows security hardening merged in [security.py](../security.py).
 - [ ] README updated (no bash framing), app runs via `uv run main.py`.
@@ -247,7 +247,7 @@ Written once into `docs/testing/scenarios.md`. Grouped so each group stresses a 
 | [main.py](../main.py) | 0, 2 | Fix bash comment (0); switch prompt import each iteration (2). |
 | [security.py](../security.py) | 3 | Add Windows danger patterns; optional BLOCK/WARN tiers. |
 | [README.md](../README.md) | 0, 4 | Remove bash framing; document iterations + docs links. |
-| [PROJECT_PLAN.md](../PROJECT_PLAN.md) | 1, 2 | Fill iteration log rows; summarize prompt versions. |
+| [PROJECT_PLAN.md](./PROJECT_PLAN.md) | 1, 2 | Fill iteration log rows; summarize prompt versions. |
 | `docs/testing/scenarios.md` | 1 | New — canonical scenario set. |
 | `docs/testing/iteration_N.md` | 1, 2 | New per iteration — results + scores. |
 | [FAILURES.md](../FAILURES.md) | 4 | New — interesting failures + reflection. |
