@@ -219,14 +219,14 @@ Written once into `docs/testing/scenarios.md`. Grouped so each group stresses a 
 ## 7. Deliverables Checklist (submission gate)
 
 - [ ] Public GitHub repo link.
-- [ ] All prompt versions present in [prompts.py](../prompts.py) + summarized in [PROJECT_PLAN.md](./PROJECT_PLAN.md).
-- [ ] `docs/testing/scenarios.md` (≥15 scenarios).
-- [ ] `docs/testing/iteration_1.md`, `iteration_2.md`, `iteration_3.md` (+ optional 4).
-- [ ] Iteration log table filled in [PROJECT_PLAN.md](./PROJECT_PLAN.md).
-- [ ] [FAILURES.md](../FAILURES.md) with interesting failures + reflection answers.
-- [ ] Windows security hardening merged in [security.py](../security.py).
-- [ ] README updated (no bash framing), app runs via `uv run main.py`.
-- [ ] `.env` **not** committed.
+- [x] All prompt versions present in [prompts.py](../prompts.py) + summarized in [PROJECT_PLAN.md](./PROJECT_PLAN.md).
+- [x] `docs/testing/scenarios.md` (≥15 scenarios).
+- [x] `docs/testing/iteration_1.md`, `iteration_2.md`, `iteration_3.md` (+ optional 4).
+- [x] Iteration log table filled in [PROJECT_PLAN.md](./PROJECT_PLAN.md).
+- [x] [FAILURES.md](../FAILURES.md) with interesting failures + reflection answers.
+- [x] Windows security hardening merged in [security.py](../security.py).
+- [x] README updated (no bash framing), app runs via `uv run main.py`.
+- [x] `.env` **not** committed.
 
 ---
 
