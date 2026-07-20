@@ -5,11 +5,20 @@ def static_check(command):
     clean_cmd = " ".join(command.lower().split())
     
     danger_patterns = {
+        # --- Linux / bash ---
         r"rm\s+-[rf]{1,2}\s+/": "Attempt to delete the root directory.",
+        r"rm\s+-[rf]{1,2}\s+": "Recursive/forced file deletion (rm -rf).",
         r"mkfs": "Attempt to format a disk.",
         r":\(\)\{\s*:\|:&\s*\};:": "Fork bomb (denial of service).",
         r"chmod\s+777": "Opening full permissions (security risk).",
-        r"> /dev/sd": "Directly overwriting hardware partitions."
+        r"> /dev/sd": "Directly overwriting hardware partitions.",
+        # --- Windows CMD ---
+        r"\bformat\s+[a-z]:": "Attempt to format a drive.",
+        r"\bshutdown\b": "Attempt to shut down or restart the machine.",
+        r"\bdel\s+/[fqs]": "Forced/quiet file deletion (del /f, /q).",
+        r"\bdel\s+.*\*": "Bulk file deletion with wildcard (del *).",
+        r"\b(rd|rmdir)\s+/s": "Recursive directory deletion (rd /s).",
+        r"\bdiskpart\b": "Disk partitioning utility (diskpart).",
     }
 
     for pattern, reason in danger_patterns.items():

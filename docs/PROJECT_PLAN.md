@@ -76,4 +76,5 @@ For **each** iteration:
 |-----------|----------------|----------------------|------------------|----------------|
 | 1 | `SYSTEM_PROMPT_V1` | (baseline) | — | Format 19/20 · Syntax 3/20 · Security 18/20 (2 leaks). Dominant failure: bash instead of Windows CMD (15/20). |
 | 2 | `SYSTEM_PROMPT_V2` | Syntax (wrong shell) | +1 rule: target shell is Windows CMD; never emit bash/PowerShell | Format 18/20 · Syntax **16.5/20** (+13.5) · Security 18/20 (2 leaks). Syntax largely fixed; CMD now surfaces destructive commands `static_check` misses. |
-| 3 | `SYSTEM_PROMPT_V3` | Windows security hardening (planned) | extend `static_check` for `del /q`, `rd /s`, `format`, `shutdown` | (pending) |
+| 3 | `SYSTEM_PROMPT_V2` (code change) | Windows security hardening | extend `static_check` blocklist: `format <drive>:`, `shutdown`, `del /f\|/q\|/s`, `del *`, `rd /s`, `diskpart` | Format 18/20 · Syntax 16.5/20 · Security **20/20** (+2), **0 leaks**. Same generations re-scored; no false-positives. |
+| 4 | `SYSTEM_PROMPT_V3` | Format (prose refusals) | +1 rule: always output a single command, never refuse in prose (security layer blocks danger) | Format **19/20** (+1) · Syntax **18/20** (+1.5) · Security 20/20 · **0 leaks**. #16 `format C:` now emitted & blocked; only #18 still refuses in prose (model safety guard). |

@@ -1,9 +1,9 @@
 import gradio as gr
 from logic import get_cli_command, validate_command_wrapper
-from prompts import SYSTEM_PROMPT_V2
+from prompts import SYSTEM_PROMPT_V3
 
 def process_request(user_input, history):
-    raw_command, updated_history = get_cli_command(user_input, SYSTEM_PROMPT_V2, history)
+    raw_command, updated_history = get_cli_command(user_input, SYSTEM_PROMPT_V3, history)
     is_safe, result = validate_command_wrapper(raw_command)
     
     if not is_safe:
@@ -284,98 +284,3 @@ with gr.Blocks(theme=THEME, css=CUSTOM_CSS) as demo:
 
 if __name__ == "__main__":
     demo.launch()
-
-
-
-
-# # Custom theme with programming aesthetic
-# THEME = gr.themes.Base(
-#     primary_hue="emerald",
-#     secondary_hue="cyan",
-#     neutral_hue="slate",
-#     font=gr.themes.GoogleFont("JetBrains Mono"),
-#     font_mono=gr.themes.GoogleFont("Fira Code")
-# )
-
-
-
-# # Create the Gradio interface
-# with gr.Blocks(theme=THEME, css=CUSTOM_CSS) as demo:
-#     history_state = gr.State([])
-
-#     # Header
-#     gr.Markdown("# ⚡ TERMINAL ARCHITECT", elem_id="main-title")
-#     gr.Markdown("*Transform natural language into Windows CMD commands*", elem_id="subtitle")
-    
-#     # Main layout
-#     with gr.Row():
-#         # Left column - Input and Output
-#         with gr.Column(scale=3):
-#             # Input section
-#             with gr.Group(elem_classes="input-section"):
-#                 gr.Markdown("### 💬 Describe Your Command", elem_classes="section-label")
-#                 input_field = gr.Textbox(
-#                     label="",
-#                     placeholder="Example: Find all Python files larger than 1MB in the current directory...",
-#                     lines=4,
-#                     elem_classes="input-field"
-#                 )
-#                 submit_btn = gr.Button(
-#                     "🚀 Generate Command",
-#                     elem_classes="generate-btn",
-#                     size="lg"
-#                 )
-            
-#             # Output section
-#             with gr.Group(elem_classes="output-section"):
-#                 gr.Markdown("### 🖥️ Generated CMD Command", elem_classes="section-label")
-#                 output_code = gr.Code(
-#                     label="",
-#                     language="shell",
-#                     elem_classes="code-output",
-#                     lines=6
-#                 )
-            
-#         # Right column - History
-#         with gr.Column(scale=2):
-#             with gr.Group(elem_classes="history-section"):
-#                 gr.Markdown("### 📜 Session History", elem_classes="history-title")
-#                 history_display = gr.Chatbot(
-#                     label="",
-#                     height=500,
-#                     elem_classes="history-box",
-#                     show_label=False
-#                 )
-#                 clear_btn = gr.Button(
-#                     "🗑️ Clear History",
-#                     elem_classes="clear-btn",
-#                     size="sm"
-#                 )
-
-#     # Footer
-#     gr.Markdown(
-#         "---\n*Powered by Gemini AI • Secure command validation enabled*",
-#         elem_id="footer"
-#     )
-
-#     # Event handlers
-#     submit_btn.click(
-#         fn=handle_request,
-#         inputs=[input_field, history_state],
-#         outputs=[output_code, history_display, history_state]
-#     )
-    
-#     input_field.submit(
-#         fn=handle_request,
-#         inputs=[input_field, history_state],
-#         outputs=[output_code, history_display, history_state]
-#     )
-    
-#     clear_btn.click(
-#         fn=lambda: ([], []),
-#         inputs=None,
-#         outputs=[history_display, history_state]
-#     )
-
-# if __name__ == "__main__":
-#     demo.launch()
