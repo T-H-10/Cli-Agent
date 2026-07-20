@@ -122,10 +122,10 @@
 ### Phase 4 — Deliverables & write-up
 **Goal:** everything the submission requires exists and is coherent.
 
-- [ ] **P4.1** Create [FAILURES.md](../FAILURES.md): the 3–5 most interesting failures (input, wrong output, why it failed, which prompt version fixed it).
-- [ ] **P4.2** Answer the reflection questions (§8) inside `FAILURES.md` or the README.
-- [ ] **P4.3** Update [README.md](../README.md): document the iterations, link `docs/IMPLEMENTATION_PLAN.md` and `docs/testing/`.
-- [ ] **P4.4** Confirm all prompt versions remain in [prompts.py](../prompts.py) and are summarized in [PROJECT_PLAN.md](./PROJECT_PLAN.md).
+- [x] **P4.1** Create [FAILURES.md](../FAILURES.md): the 3–5 most interesting failures (input, wrong output, why it failed, which prompt version fixed it).
+- [x] **P4.2** Answer the reflection questions (§8) inside `FAILURES.md` or the README.
+- [x] **P4.3** Update [README.md](../README.md): document the iterations, link `docs/IMPLEMENTATION_PLAN.md` and `docs/testing/`.
+- [x] **P4.4** Confirm all prompt versions remain in [prompts.py](../prompts.py) and are summarized in [PROJECT_PLAN.md](./PROJECT_PLAN.md).
 - [ ] **P4.5** Final smoke test with the latest prompt version.
 
 **Exit criteria:** repo is submission-ready; every checkbox in §7 is ticked.
